@@ -1,32 +1,44 @@
 import React, { useState } from 'react';
 
 const RecipeForm = ({ onAddRecipe }) => {
-  const [recipe, setRecipe] = useState({ title: '', ingredients: '', directions: '' });
+  const [title, setTitle] = useState('');
+  const [ingredients, setIngredients] = useState('');
+  const [directions, setDirections] = useState('');
+  const [image, setImage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddRecipe(recipe);
-    setRecipe({ title: '', ingredients: '', directions: '' });
+    onAddRecipe({ title, ingredients, directions, image });
+    setTitle('');
+    setIngredients('');
+    setDirections('');
+    setImage('');
   };
 
   return (
-    <form className="search-bar-form" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="search-bar-form">
       <h2>Add a New Recipe</h2>
       <input
         type="text"
         placeholder="Recipe Title"
-        value={recipe.title}
-        onChange={(e) => setRecipe({ ...recipe, title: e.target.value })}
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
       <textarea
         placeholder="Ingredients"
-        value={recipe.ingredients}
-        onChange={(e) => setRecipe({ ...recipe, ingredients: e.target.value })}
+        value={ingredients}
+        onChange={(e) => setIngredients(e.target.value)}
       />
       <textarea
         placeholder="Directions"
-        value={recipe.directions}
-        onChange={(e) => setRecipe({ ...recipe, directions: e.target.value })}
+        value={directions}
+        onChange={(e) => setDirections(e.target.value)}
+      />
+      <input
+        type="url"
+        placeholder="Image URL"
+        value={image}
+        onChange={(e) => setImage(e.target.value)}
       />
       <button type="submit">Add Recipe</button>
     </form>
@@ -34,3 +46,4 @@ const RecipeForm = ({ onAddRecipe }) => {
 };
 
 export default RecipeForm;
+

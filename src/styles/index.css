@@ -1,120 +1,237 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(230deg, #ff7b00, #21be01);
-    padding: 10px;
-  }
-  
-  .search-bar-top {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .search-bar-top input {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    width: 200px;
-    margin-right: 10px;
-  }
-  
-  .search-bar-top button {
-    background: #479201;
-    border: none;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-  }
-  
-  .search-bar-top button:hover {
-    background: #3d7d01;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(150deg, #ff3c00, #15c904);
+  padding: 10px;
 }
 
-  .search-bar-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 400px;
-    width: 100%;
-  }
-  
-  .search-bar-form input,
-  .search-bar-form textarea {
-    padding: 8px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-  }
-  
-  .search-bar-form button {
-    padding: 10px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .search-bar-form button:hover {
-    background: #218639;
+.search-bar {
+  width: 100%;
+  max-width: 540px;
+  background: white;
+  margin: 100px auto 20px;
+  padding: 40px 30px;
+  border-radius: 10px;
+  position: relative;
 }
-  .recipe-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .recipe-button {
-    padding: 10px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  
-  .recipe-button .delete-btn {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 5px;
-    cursor: pointer;
-    margin-left: auto;
-  }
 
-  .recipe-popup {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .popup-content {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
+.search-bar img {
+  display: block;
+  width: 100px;
+  margin: 0 auto 20px;
+}
+
+.search-bar h1 {
+  color: #479201;
+  font-family: sans-serif;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.search-bar-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar-top input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 70%;
+  max-width: 400px;
+  margin-bottom: 1px;
+  text-align: center;
+}
+
+.search-bar-top button {
+  background: #479201;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  height: auto;
+  width: auto;
+}
+
+.search-bar-top button:hover {
+  background: #3d7d01;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-button {
+  flex: 1 1 auto;
+  min-width: 150px;
+  max-width: 200px;
+  padding: 16px 20px;
+  background: #a17d06;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.recipe-button:hover {
+  background: #c49706;
+}
+
+
+.recipe-button .delete-btn {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: #ff0000;
+  color: #fff;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1;
+}
+
+.recipe-button .delete-btn:hover {
+  background-color: #800a0a;
+}
+
+.search-bar-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar-form h2 {
+  color: #479201;
+  margin-bottom: 15px;
+  font-family: sans-serif;
+}
+
+.search-bar-form input,
+.search-bar-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-family: sans-serif;
+  font-size: 14px;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.search-bar-form button {
+  padding: 10px 20px;
+  background-color: #a17d06;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 16px;
+}
+
+.search-bar-form button:hover {
+  background-color: #c49706;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 70%;
+  max-width: 500px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+}
+
+.popup img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.popup h2 {
+  margin-top: 15px;
+  font-size: 24px;
+}
+
+.popup p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.popup.show {
+  display: block;
+}
+
