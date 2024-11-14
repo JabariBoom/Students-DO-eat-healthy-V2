@@ -4,7 +4,7 @@ const RecipeForm = ({ onAddRecipe }) => {
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [directions, setDirections] = useState('');
-  const [image, setImage] = useState('');
+  const [img_URL, setImage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ const RecipeForm = ({ onAddRecipe }) => {
       title,
       ingredients,
       directions,
-      image
+      img_URL
     };
 
 const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-healthy-V2/Foods"
@@ -57,7 +57,7 @@ const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-
       <input
         type="url"
         placeholder="Image URL"
-        value={image}
+        value={img_URL}
         onChange={(e) => setImage(e.target.value)}
       />
       <button type="submit">Add Recipe</button>
