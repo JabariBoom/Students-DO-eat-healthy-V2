@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Students-DO-eat-healthy-V2/static/css/main.6aac3af8.css",
+    "main.css": "/Students-DO-eat-healthy-V2/static/css/main.6e139298.css",
     "main.js": "/Students-DO-eat-healthy-V2/static/js/main.4a9bdc51.js",
     "static/js/453.0170f418.chunk.js": "/Students-DO-eat-healthy-V2/static/js/453.0170f418.chunk.js",
     "index.html": "/Students-DO-eat-healthy-V2/index.html",
-    "main.6aac3af8.css.map": "/Students-DO-eat-healthy-V2/static/css/main.6aac3af8.css.map",
+    "main.6e139298.css.map": "/Students-DO-eat-healthy-V2/static/css/main.6e139298.css.map",
     "main.4a9bdc51.js.map": "/Students-DO-eat-healthy-V2/static/js/main.4a9bdc51.js.map",
     "453.0170f418.chunk.js.map": "/Students-DO-eat-healthy-V2/static/js/453.0170f418.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6aac3af8.css",
+    "static/css/main.6e139298.css",
     "static/js/main.4a9bdc51.js"
   ]
 }
