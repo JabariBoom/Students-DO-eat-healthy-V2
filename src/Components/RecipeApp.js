@@ -5,13 +5,13 @@ import RecipeList from './RecipeList';
 import RecipePopup from './RecipePopup';
 import '../styles/index.css';
 
-const RecipeApp = () => {
+const RecipeApp = ({ showFormOnly, onLikeRecipe }) => {
   const [defaultRecipes, setDefaultRecipes] = useState([]);
   const [userRecipes, setUserRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
-const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-healthy-V2/Foods"
+  const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-healthy-V2/Foods";
 
   useEffect(() => {
     fetch(baseURL)
@@ -27,6 +27,7 @@ const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-
     const updatedUserRecipes = [...userRecipes, newRecipe];
     setUserRecipes(updatedUserRecipes);
     setFilteredRecipes([...defaultRecipes, ...updatedUserRecipes]);
+    alert("Added Successfully");
   };
 
   const handleDeleteRecipe = (title) => {
@@ -35,34 +36,27 @@ const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-
     setFilteredRecipes([...defaultRecipes, ...updatedUserRecipes]);
   };
 
-  const handleSearch = (query) => {
-    if (query) {
-      const allRecipes = [...defaultRecipes, ...userRecipes];
-      const filteredResults = allRecipes.filter(recipe => 
-        recipe.title.toLowerCase().includes(query.toLowerCase())
-      );
-      setFilteredRecipes(filteredResults);
-    } else {
-      setFilteredRecipes([...defaultRecipes, ...userRecipes]);
-    }
-  };
-
-  const handleSelectRecipe = (recipe) => {
-    setSelectedRecipe(recipe);
-  };
-
-  const handleClosePopup = () => {
-    setSelectedRecipe(null);
-  };
-
   return (
     <div className="container">
-      <SearchBar onSearch={handleSearch} />
-      <RecipeForm onAddRecipe={handleAddRecipe} />
-      <RecipeList recipes={filteredRecipes} onSelectRecipe={handleSelectRecipe} onDeleteRecipe={handleDeleteRecipe} />
-      {selectedRecipe && <RecipePopup recipe={selectedRecipe} onClose={handleClosePopup} />}
+      <SearchBar onSearch={(query) => {
+        const allRecipes = [...defaultRecipes, ...userRecipes];
+        setFilteredRecipes(query ? allRecipes.filter(recipe => recipe.title.toLowerCase().includes(query.toLowerCase())) : allRecipes);
+      }} />
+      {showFormOnly ? (
+        <RecipeForm onAddRecipe={handleAddRecipe} />
+      ) : (
+        <RecipeList 
+          recipes={filteredRecipes} 
+          onSelectRecipe={setSelectedRecipe} 
+          onDeleteRecipe={handleDeleteRecipe} 
+          onLikeRecipe={onLikeRecipe} 
+        />
+      )}
+      {selectedRecipe && <RecipePopup recipe={selectedRecipe} onClose={() => setSelectedRecipe(null)} />}
     </div>
   );
 };
 
 export default RecipeApp;
+
+

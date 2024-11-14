@@ -1,7 +1,7 @@
 import React from 'react';
 import RecipeItem from './RecipeItem';
 
-const RecipeList = ({ recipes, onSelectRecipe, onDeleteRecipe }) => {
+const RecipeList = ({ recipes, onSelectRecipe, onDeleteRecipe, onLikeRecipe }) => {
   return (
     <div className="button-container">
       <div className="recipe-list">
@@ -11,6 +11,7 @@ const RecipeList = ({ recipes, onSelectRecipe, onDeleteRecipe }) => {
             recipe={recipe}
             onSelect={onSelectRecipe}
             onDelete={onDeleteRecipe}
+            onLike={onLikeRecipe}
           />
         ))}
       </div>
