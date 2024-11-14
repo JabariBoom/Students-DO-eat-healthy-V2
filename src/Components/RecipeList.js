@@ -19,4 +19,3 @@ const RecipeList = ({ recipes, onSelectRecipe, onDeleteRecipe }) => {
 };
 
 export default RecipeList;
-
