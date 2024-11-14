@@ -37,7 +37,7 @@ const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-
 
   return (
     <form onSubmit={handleSubmit} className="search-bar-form">
-      <h2>Add a New Recipe</h2>
+      <h2>Post your delicious recipes!</h2>
       <input
         type="text"
         placeholder="Recipe Title"
