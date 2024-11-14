@@ -62,7 +62,13 @@
   font-size: 14px;
   height: auto;
   width: auto;
+  margin-top: 5px;
 }
+
+.search-bar-top button:hover {
+  background: #3d7d01;
+}
+
 
 .search-bar-top button:hover {
   background: #3d7d01;
@@ -83,10 +89,22 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.button-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
 .recipe-button {
-  flex: 1 0 auto;
-  min-width: 150px;
-  max-width: 200px;
+  width: 250%;
   padding: 16px 20px;
   background: #a17d06;
   color: #fff;
@@ -98,12 +116,14 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  margin: 15px 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .recipe-button:hover {
   background: #c49706;
 }
-
 
 .recipe-button .delete-btn {
   position: absolute;
