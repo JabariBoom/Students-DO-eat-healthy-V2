@@ -11,8 +11,10 @@ const RecipeApp = () => {
   const [filteredRecipes, setFilteredRecipes] = useState([]);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
+const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-healthy-V2/Foods"
+
   useEffect(() => {
-    fetch("http://localhost:6001/Foods")
+    fetch(baseURL)
       .then(response => response.json())
       .then(data => {
         setDefaultRecipes(data);

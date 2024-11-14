@@ -8,11 +8,31 @@ const RecipeForm = ({ onAddRecipe }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddRecipe({ title, ingredients, directions, image });
-    setTitle('');
-    setIngredients('');
-    setDirections('');
-    setImage('');
+    const newRecipe = {
+      title,
+      ingredients,
+      directions,
+      image
+    };
+
+const baseURL = "https://my-json-server.typicode.com/JabariBoom/Students-DO-eat-healthy-V2/Foods"
+
+    fetch(baseURL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newRecipe),
+    })
+    .then(response => response.json())
+    .then(data => {
+      onAddRecipe(data);
+      setTitle('');
+      setIngredients('');
+      setDirections('');
+      setImage('');
+    })
+    .catch(error => console.error('Error saving recipe:', error));
   };
 
   return (
@@ -46,4 +66,5 @@ const RecipeForm = ({ onAddRecipe }) => {
 };
 
 export default RecipeForm;
+
 
