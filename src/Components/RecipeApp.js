@@ -5,7 +5,7 @@ import RecipeList from './RecipeList';
 import RecipePopup from './RecipePopup';
 import '../styles/index.css';
 
-const RecipeApp = ({ showFormOnly, onLikeRecipe }) => {
+const RecipeApp = ({ showFormOnly, onLikeRecipe, showSearchBar }) => {
   const [defaultRecipes, setDefaultRecipes] = useState([]);
   const [userRecipes, setUserRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
@@ -38,10 +38,12 @@ const RecipeApp = ({ showFormOnly, onLikeRecipe }) => {
 
   return (
     <div className="container">
-      <SearchBar onSearch={(query) => {
-        const allRecipes = [...defaultRecipes, ...userRecipes];
-        setFilteredRecipes(query ? allRecipes.filter(recipe => recipe.title.toLowerCase().includes(query.toLowerCase())) : allRecipes);
-      }} />
+      {showSearchBar && (
+        <SearchBar onSearch={(query) => {
+          const allRecipes = [...defaultRecipes, ...userRecipes];
+          setFilteredRecipes(query ? allRecipes.filter(recipe => recipe.title.toLowerCase().includes(query.toLowerCase())) : allRecipes);
+        }} />
+      )}
       {showFormOnly ? (
         <RecipeForm onAddRecipe={handleAddRecipe} />
       ) : (
@@ -58,5 +60,6 @@ const RecipeApp = ({ showFormOnly, onLikeRecipe }) => {
 };
 
 export default RecipeApp;
+
 
 

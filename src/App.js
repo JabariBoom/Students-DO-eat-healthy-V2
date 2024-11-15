@@ -28,8 +28,14 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<RecipeApp showFormOnly={true} onLikeRecipe={handleLikeRecipe} />} />
-          <Route path="/all-recipes" element={<RecipeApp showFormOnly={false} onLikeRecipe={handleLikeRecipe} />} />
-          <Route path="/liked-recipes" element={<LikedRecipes recipes={likedRecipes} onUnlikeRecipe={handleUnlikeRecipe} />} />
+          <Route 
+            path="/all-recipes" 
+            element={<RecipeApp showFormOnly={false} onLikeRecipe={handleLikeRecipe} showSearchBar={true} />} 
+          />
+          <Route 
+            path="/liked-recipes" 
+            element={<LikedRecipes recipes={likedRecipes} onUnlikeRecipe={handleUnlikeRecipe} />} 
+          />
         </Routes>
       </div>
     </Router>
@@ -37,6 +43,7 @@ function App() {
 }
 
 export default App;
+
 
 
 

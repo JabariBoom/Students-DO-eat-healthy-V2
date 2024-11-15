@@ -9,7 +9,7 @@ const RecipeList = ({ recipes, onSelectRecipe, onDeleteRecipe, onLikeRecipe }) =
           <RecipeItem
             key={recipe.title}
             recipe={recipe}
-            onSelect={onSelectRecipe}
+            onSelect={onSelectRecipe} // Pass onSelectRecipe here
             onDelete={onDeleteRecipe}
             onLike={onLikeRecipe}
           />
@@ -20,3 +20,4 @@ const RecipeList = ({ recipes, onSelectRecipe, onDeleteRecipe, onLikeRecipe }) =
 };
 
 export default RecipeList;
+
